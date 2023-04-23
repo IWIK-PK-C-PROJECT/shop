@@ -3,9 +3,8 @@
 #include "database/user.hpp"
 #include "database/database.hpp"
 
-void addUser(){
+void addUser(Database& database){
     using std::string, std::cout, std::cin, std::endl;
-    Database database {};
 
     User userToAdd {};
 
@@ -41,6 +40,7 @@ void addUser(){
 int main() {
     std::string input;
 
+    Database database {};
     while(true)
     {
         clearScreen();
@@ -54,7 +54,7 @@ int main() {
         }
         else if (input == "2")
         {
-            addUser();
+            addUser(database);
         }
         else if (input == "3")
         {
