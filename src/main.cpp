@@ -1,16 +1,11 @@
 #include <iostream>
 #include "util/util.hpp"
-
-struct User
-{
-    std::string name {};
-    std::string surname {};
-    std::string email {};
-    std::string password {};
-};
+#include "database/user.hpp"
+#include "database/database.hpp"
 
 void addUser(){
     using std::string, std::cout, std::cin, std::endl;
+    Database database {};
 
     User userToAdd {};
 
@@ -30,8 +25,17 @@ void addUser(){
         cout <<"Is this data ok? [Y/N] ";
         cin >> check;
         if (check == "Y" || check == "y")
-            break;
+        {
+            if( database.canAddUser(userToAdd))
+            {
+                database.addUser(userToAdd);
+                std::cout << "user successfully registered" << std::endl;
+                return;
+            }
+            std::cout << "invalid data, please fill correct data" << std::endl;
+        }
     }
+
 }
 
 int main() {
