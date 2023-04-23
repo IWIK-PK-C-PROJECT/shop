@@ -2,6 +2,10 @@
 
 bool Database::canAddUser(const User &userToAdd)
 {
+    if (userToAdd.email == "" || userToAdd.password == ""){
+        return false;
+    }
+
     for(const auto &user : users)
     {
         if(userToAdd.email == user.email)
