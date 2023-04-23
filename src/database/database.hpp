@@ -1,4 +1,6 @@
 #pragma once
+
+#include <vector>
 #include "user.hpp"
 
 class Database
@@ -6,6 +8,9 @@ class Database
 public:
     Database() = default;
 
-    bool canAddUser(const User& user);
-    void addUser(const User& user);
+    bool canAddUser(const User& userToAdd);
+    void addUser(const User& userToAdd);
+
+private:
+    std::vector<User> users;
 };
