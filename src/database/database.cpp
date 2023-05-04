@@ -1,12 +1,12 @@
 #include "database.hpp"
 
-bool Database::canAddUser(const User &userToAdd)
+bool Database::canAddUser(const User & userToAdd)
 {
     if (userToAdd.email == "" || userToAdd.password == ""){
         return false;
     }
 
-    for(const auto &user : users)
+    for(const auto & user : users)
     {
         if(userToAdd.email == user.email)
             return false;
@@ -15,7 +15,7 @@ bool Database::canAddUser(const User &userToAdd)
     return true;
 }
 
-void Database::addUser(const User &userToAdd)
+void Database::addUser(const User & userToAdd)
 {
     users.push_back(userToAdd);
 }

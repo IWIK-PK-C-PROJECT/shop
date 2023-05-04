@@ -10,7 +10,7 @@ struct UserSession
 };
 
 
-void addUser(Database& database){
+void addUser(Database & database){
     using std::string, std::cout, std::cin, std::endl;
 
     User userToAdd {};
@@ -44,7 +44,7 @@ void addUser(Database& database){
 
 }
 
-void loginMenu(const Database& database, UserSession& session)
+void loginMenu(const Database & database, UserSession & session)
 {
     clearScreen();
 
