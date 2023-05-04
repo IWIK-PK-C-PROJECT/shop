@@ -37,6 +37,21 @@ void addUser(Database& database){
 
 }
 
+void loginMenu(const Database& database)
+{
+    clearScreen();
+
+    std::string email, password;
+
+    std::cout << "E-mail: ";
+    std::cin >> email;
+
+    std::cout << "Password: ";
+    std::cin >> password;
+
+
+}
+
 int main() {
     std::string input;
 
@@ -50,7 +65,7 @@ int main() {
         std::cin >> input;
         if (input == "1")
         {
-
+            loginMenu(database);
         }
         else if (input == "2")
         {
