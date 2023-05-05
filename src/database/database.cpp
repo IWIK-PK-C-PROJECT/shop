@@ -1,6 +1,26 @@
 #include "database.hpp"
 
-bool Database::canAddUser(const User & userToAdd)
+bool Database::isUserExist(const std::string &email) const {
+    for(const auto & user : users)
+    {
+        if(user.email == email)
+            return true;
+    }
+    return false;
+}
+
+User Database::getUser(const std::string &email) const
+{
+    for(const auto & user : users)
+    {
+        if(user.email == email)
+            return user;
+    }
+
+    return {};
+}
+
+bool Database::canAddUser(const User & userToAdd) const
 {
     if (userToAdd.email == "" || userToAdd.password == ""){
         return false;

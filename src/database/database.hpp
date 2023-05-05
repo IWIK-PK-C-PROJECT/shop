@@ -8,7 +8,10 @@ class Database
 public:
     Database() = default;
 
-    bool canAddUser(const User & userToAdd);
+    bool isUserExist(const std::string & email) const;
+    User getUser(const std::string & email) const;
+
+    bool canAddUser(const User & userToAdd) const;
     void addUser(const User & userToAdd);
 
 private:

@@ -3,7 +3,7 @@
 #include "database/user.hpp"
 #include "database/database.hpp"
 
-struct UserSession
+struct UserSession //TODO: move to new file
 {
     std::string userEmail{};
     //TODO: Implement cart variable
@@ -46,18 +46,28 @@ void addUser(Database & database){
 
 void loginMenu(const Database & database, UserSession & session)
 {
-    clearScreen();
 
     std::string email, password;
 
-    std::cout << "E-mail: ";
-    std::cin >> email;
+    while(true)
+    {
+        clearScreen();
 
-    std::cout << "Password: ";
-    std::cin >> password;
+        std::cout << "E-mail: ";
+        std::cin >> email;
 
-    if(true) //TODO: Validate login data
-        session.userEmail = email;
+        std::cout << "Password: ";
+        std::cin >> password;
+
+        if (database.isUserExist(email)) //TODO: move to user session
+        {
+            auto user = database.getUser(email);
+            if (user.password == password) {
+                session.userEmail = email;
+                return;
+            }
+        }
+    }
 }
 
 int main() {
