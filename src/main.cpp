@@ -2,13 +2,7 @@
 #include "util/util.hpp"
 #include "database/user.hpp"
 #include "database/database.hpp"
-
-struct UserSession //TODO: move to new file
-{
-    std::string userEmail{};
-    //TODO: Implement cart variable
-};
-
+#include "userSession.hpp"
 
 void addUser(Database & database){
     using std::string, std::cout, std::cin, std::endl;
