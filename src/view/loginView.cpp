@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include "../util/util.hpp"
+#include "welcomeView.hpp"
 
 std::unique_ptr<View> LoginView::display(session& session)
 {
@@ -23,7 +24,7 @@ std::unique_ptr<View> LoginView::display(session& session)
             auto user = database.getUser(email);
             if (user.password == password) {
                 session.userEmail = email;
-                return {};
+                return std::make_unique<WelcomeView>();
             }
         }
     }

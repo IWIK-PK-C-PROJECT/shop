@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include "../util/util.hpp"
+#include "welcomeView.hpp"
 
 std::unique_ptr<View> RegisterView::display(session& session)
 {
@@ -32,7 +33,7 @@ std::unique_ptr<View> RegisterView::display(session& session)
             {
                 database.addUser(userToAdd);
                 std::cout << "user successfully registered" << std::endl;
-                return {};
+                return std::make_unique<WelcomeView>();
             }
             std::cout << "invalid data, please fill correct data" << std::endl;
         }
