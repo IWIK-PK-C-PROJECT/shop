@@ -8,6 +8,14 @@
 
 int main() {
     session currentSession;
+
+    User admin;
+    admin.email = "admin@admin.pl";
+    admin.name = "admin";
+    admin.surname = "admin";
+    admin.password = "haslo";
+    currentSession.database.addUser(admin);
+
     std::unique_ptr<View> currentView = std::make_unique<WelcomeView>();
     while(true)
     {
