@@ -1,8 +1,11 @@
 #pragma once
 #include <string>
+#include "database.hpp"
 
-struct UserSession
+struct session
 {
     std::string userEmail{};
+
+    Database database;
     //TODO: Implement cart variable
 };
