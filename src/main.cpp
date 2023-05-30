@@ -11,6 +11,11 @@
 int main() {
     session currentSession;
 
+    Product productToAdd;
+    productToAdd.name = "mleko";
+    productToAdd.price = 4.5;
+    currentSession.database.addProduct(productToAdd);
+
     // load file
     {
         std::fstream usersFile;
@@ -36,8 +41,6 @@ int main() {
 
         usersFile.close();
     }
-
-
 
     // main loop
     View* currentView = new WelcomeView();

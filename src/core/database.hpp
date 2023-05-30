@@ -2,6 +2,7 @@
 
 #include <vector>
 #include "user.hpp"
+#include "product.hpp"
 
 class Database
 {
@@ -16,6 +17,11 @@ public:
 
     std::vector<User>& getAllUsers();
 
+    void addProduct(const Product & productToAdd);
+
+    std::vector<Product>& getAllProduct();
+
 private:
     std::vector<User> users;
+    std::vector<Product> products;
 };

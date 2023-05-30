@@ -1,4 +1,6 @@
 #include "database.hpp"
+#include <vector>
+
 
 bool Database::isUserExist(const std::string &email) const {
     for(const auto & user : users)
@@ -43,4 +45,14 @@ void Database::addUser(const User & userToAdd)
 std::vector<User>& Database::getAllUsers()
 {
     return users;
+}
+
+void Database::addProduct(const Product & productToAdd)
+{
+    products.push_back(productToAdd);
+}
+
+std::vector<Product>& Database::getAllProduct()
+{
+    return products;
 }
