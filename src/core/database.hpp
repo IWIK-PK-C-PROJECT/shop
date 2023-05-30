@@ -14,6 +14,8 @@ public:
     bool canAddUser(const User & userToAdd) const;
     void addUser(const User & userToAdd);
 
+    std::vector<User>& getAllUsers();
+
 private:
     std::vector<User> users;
 };

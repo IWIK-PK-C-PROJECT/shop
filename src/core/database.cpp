@@ -39,3 +39,8 @@ void Database::addUser(const User & userToAdd)
 {
     users.push_back(userToAdd);
 }
+
+std::vector<User>& Database::getAllUsers()
+{
+    return users;
+}
