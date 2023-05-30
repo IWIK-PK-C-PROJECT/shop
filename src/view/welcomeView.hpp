@@ -4,5 +4,5 @@
 class WelcomeView : public View
 {
 public:
-    std::unique_ptr<View> display(session&) override;
+    View* display(session&) override;
 };

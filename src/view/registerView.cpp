@@ -4,7 +4,7 @@
 #include "../util/util.hpp"
 #include "welcomeView.hpp"
 
-std::unique_ptr<View> RegisterView::display(session& session)
+View* RegisterView::display(session& session)
 {
     using std::string, std::cout, std::cin, std::endl;
 
@@ -33,10 +33,9 @@ std::unique_ptr<View> RegisterView::display(session& session)
             {
                 database.addUser(userToAdd);
                 std::cout << "user successfully registered" << std::endl;
-                return std::make_unique<WelcomeView>();
+                return new WelcomeView();
             }
             std::cout << "invalid data, please fill correct data" << std::endl;
         }
     }
-
 }

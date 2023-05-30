@@ -1,10 +1,11 @@
 #include "loginView.hpp"
+#include "WelcomeView.hpp"
 
 #include <iostream>
 #include "../util/util.hpp"
 #include "loggedMainView.hpp"
 
-std::unique_ptr<View> LoginView::display(session& session)
+View* LoginView::display(session& session)
 {
     auto& database = session.database;
 
@@ -24,8 +25,14 @@ std::unique_ptr<View> LoginView::display(session& session)
             auto user = database.getUser(email);
             if (user.password == password) {
                 session.userEmail = email;
-                return std::make_unique<LoggedMainView>();
+                return new LoggedMainView();
             }
-        }
+        }else
+            std::cout<<"Email or password doesnt match with database, do you want to try again? [Y/N]"<<std::endl;
+            std::string choice;
+            std::cin>>choice;
+            if (choice == "N" || choice == "n"){
+                return new WelcomeView();
+            }
     }
 }

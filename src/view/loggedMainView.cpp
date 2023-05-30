@@ -6,7 +6,7 @@
 #include "welcomeView.hpp"
 #include "loginView.hpp"
 
-std::unique_ptr<View> LoggedMainView::display(session& session)
+View* LoggedMainView::display(session& session)
 {
     std::string input;
     clearScreen();
@@ -15,12 +15,12 @@ std::unique_ptr<View> LoggedMainView::display(session& session)
     std::cin >> input;
     if (input == "1")
     {
-        return std::make_unique<WelcomeView>();
+        return new WelcomeView();
     }
     else if (input == "2")
     {
-        return {};
+        return nullptr;
     }
 
-    return {};
+    return nullptr;
 }

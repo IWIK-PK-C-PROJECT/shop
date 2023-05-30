@@ -7,5 +7,5 @@ class View
 public:
     virtual ~View() = default;
 
-    virtual std::unique_ptr<View> display(session&) = 0;
+    virtual View* display(session&) = 0;
 };

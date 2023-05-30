@@ -16,13 +16,18 @@ int main() {
     admin.password = "haslo";
     currentSession.database.addUser(admin);
 
-    std::unique_ptr<View> currentView = std::make_unique<WelcomeView>();
+    View* currentView = new WelcomeView();
     while(true)
     {
-        if(!currentView)
+        if(currentView == nullptr)
             return 0;
 
-        currentView = currentView->display(currentSession);
+        //currentView = currentView->display(currentSession);
+        View* nextView = currentView->display(currentSession); // only for clean-up
+        delete currentView; // only for clean-up
+        currentView = nextView; // only for clean-up
     }
+
+    delete currentView;
     return 0;
 }
