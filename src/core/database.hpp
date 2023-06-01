@@ -22,6 +22,6 @@ public:
     std::vector<Product>& getAllProduct();
 
 private:
-    std::vector<User> users;
-    std::vector<Product> products;
+    std::vector<User> users {};
+    std::vector<Product> products {};
 };

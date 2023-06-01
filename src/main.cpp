@@ -7,7 +7,7 @@ int main()
 {
     session currentSession {};
 
-    /*currentSession.loadUserFile();
+    currentSession.loadUserFile();
     currentSession.loadProductFile();
 
     // main loop
@@ -26,6 +26,6 @@ int main()
 
     currentSession.saveUserFile();
     currentSession.saveProductFile();
-*/
+
     return 0;
 }
