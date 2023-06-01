@@ -3,6 +3,16 @@
 
 class Product {
 public:
-        std::string name {};
-        double price {};
+    enum class Status : int
+    {
+        Available   = 0,
+        Preparation = 1
+    };
+
+    std::string name {};
+    double price {};
+
+    Status status {Status::Available};
 };
+
+

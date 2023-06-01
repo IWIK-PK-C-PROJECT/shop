@@ -1,17 +1,13 @@
 #include <iostream>
-#include "util/util.hpp"
 #include "core/user.hpp"
-#include "core/database.hpp"
 #include "core/session.hpp"
-
 #include "view/welcomeView.hpp"
 
-#include <fstream>
+int main()
+{
+    session currentSession {};
 
-int main() {
-    session currentSession;
-
-    currentSession.loadUserFile();
+    /*currentSession.loadUserFile();
     currentSession.loadProductFile();
 
     // main loop
@@ -30,6 +26,6 @@ int main() {
 
     currentSession.saveUserFile();
     currentSession.saveProductFile();
-
+*/
     return 0;
 }

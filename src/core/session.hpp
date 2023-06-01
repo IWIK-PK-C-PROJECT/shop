@@ -4,11 +4,10 @@
 #include <iostream>
 #include "database.hpp"
 
-struct session
-{
-    std::string userEmail{};
+struct session {
 
-    Database database;
+    std::string userEmail {""};
+    Database database {};
 
     void loadUserFile();
     void loadProductFile();
