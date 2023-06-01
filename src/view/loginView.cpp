@@ -36,3 +36,8 @@ View* LoginView::display(session& session)
             }
     }
 }
+
+std::string LoginView::getDisplayName()
+{
+    return "LoginView";
+}

@@ -39,3 +39,8 @@ View* RegisterView::display(session& session)
         }
     }
 }
+
+std::string RegisterView::getDisplayName()
+{
+    return "RegisterView";
+}

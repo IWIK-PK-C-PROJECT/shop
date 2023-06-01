@@ -44,3 +44,8 @@ View* ProductListView::display(session& session)
     else
         return new LoggedMainView();
 }
+
+std::string ProductListView::getDisplayName()
+{
+    return "ProductListView";
+}

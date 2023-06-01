@@ -25,3 +25,8 @@ View* WelcomeView::display(session& session)
 
     return nullptr;
 }
+
+std::string WelcomeView::getDisplayName()
+{
+    return "WelcomeView";
+}

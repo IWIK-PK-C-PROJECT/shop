@@ -31,3 +31,8 @@ View* LoggedMainView::display(session& session)
 
     return nullptr;
 }
+
+std::string LoggedMainView::getDisplayName()
+{
+    return "LoggedMainView";
+}
