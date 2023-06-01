@@ -32,9 +32,14 @@ View* ProductListView::display(session& session)
         {
              if (productToBuy == product.name) {
                  product.status = Product::Status::Preparation;
-                 break;
+                 return new ProductListView();
              }
         }
+        std::cout << "Didnt find matching product, press anything to continue." <<std::endl;
+        std::string temp;
+        std::cin >> temp;
+        return new ProductListView();
+
     }
     else
         return new LoggedMainView();

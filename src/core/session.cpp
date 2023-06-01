@@ -33,12 +33,13 @@ void session::loadProductFile()
         std::cout << "Dostep do pliku zostal zabroniony!" << std::endl;
         return;
     }
-
+    int tempStatus;
     while (!productFile.eof()) {
         Product productToAdd;
         productFile >> productToAdd.name;
         productFile >> productToAdd.price;
-
+        productFile >> tempStatus;
+        productToAdd.status = static_cast<Product::Status>(tempStatus);
         if( productToAdd.name.empty() ) //  or productToAdd.price.empty()
             continue;
 
@@ -72,6 +73,7 @@ void session::saveProductFile()
     {
         productFile << product.name << " ";
         productFile << product.price << " ";
+        productFile << static_cast<int>(product.status) << " ";
     }
 
     productFile.close();
