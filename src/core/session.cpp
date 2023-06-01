@@ -25,6 +25,29 @@ void session::loadUserFile()
     usersFile.close();
 }
 
+void session::loadProductFile()
+{
+    std::fstream productFile;
+    productFile.open("products.txt", std::ios::in );
+    if (!productFile.good()) {
+        std::cout << "Dostep do pliku zostal zabroniony!" << std::endl;
+        return;
+    }
+
+    while (!productFile.eof()) {
+        Product productToAdd;
+        productFile >> productToAdd.name;
+        productFile >> productToAdd.price;
+
+        if( productToAdd.name.empty() ) //  or productToAdd.price.empty()
+            continue;
+
+        database.addProduct(productToAdd);
+    }
+
+    productFile.close();
+}
+
 void session::saveUserFile()
 {
     std::fstream usersFile;
@@ -39,4 +62,17 @@ void session::saveUserFile()
     }
 
     usersFile.close();
+}
+
+void session::saveProductFile()
+{
+    std::fstream productFile;
+    productFile.open("products.txt", std::ofstream::out | std::ofstream::trunc);
+    for(Product& product : database.getAllProduct() )
+    {
+        productFile << product.name << " ";
+        productFile << product.price << " ";
+    }
+
+    productFile.close();
 }

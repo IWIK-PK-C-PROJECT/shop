@@ -11,12 +11,8 @@
 int main() {
     session currentSession;
 
-    Product productToAdd;
-    productToAdd.name = "mleko";
-    productToAdd.price = 4.5;
-    currentSession.database.addProduct(productToAdd);
-
     currentSession.loadUserFile();
+    currentSession.loadProductFile();
 
     // main loop
     View* currentView = new WelcomeView();
@@ -33,6 +29,7 @@ int main() {
     delete currentView;
 
     currentSession.saveUserFile();
+    currentSession.saveProductFile();
 
     return 0;
 }

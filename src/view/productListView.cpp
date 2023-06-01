@@ -10,14 +10,11 @@ View* ProductListView::display(session& session)
 {
     auto& database = session.database;
 
-    while(true)
-    {
         clearScreen();
         for(Product& product : session.database.getAllProduct() )
         {
             std::cout << product.name << " / ";
             std::cout << product.price << std::endl;
         }
-    }
 }
 
