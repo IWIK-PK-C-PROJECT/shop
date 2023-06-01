@@ -4,7 +4,7 @@
 #include "../util/util.hpp"
 #include "welcomeView.hpp"
 
-View* RegisterView::display(session& session)
+View* RegisterView::display(Session& session)
 {
     using std::string, std::cout, std::cin, std::endl;
 

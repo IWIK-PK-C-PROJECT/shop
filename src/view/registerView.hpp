@@ -4,6 +4,6 @@
 class RegisterView : public View
 {
 public:
-    View* display(session&) override;
+    View* display(Session&) override;
     std::string getDisplayName() override;
 };

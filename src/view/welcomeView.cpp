@@ -6,7 +6,7 @@
 #include "registerView.hpp"
 #include "loginView.hpp"
 
-View* WelcomeView::display(session& session)
+View* WelcomeView::display(Session& session)
 {
     std::string input;
     clearScreen();

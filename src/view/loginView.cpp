@@ -5,7 +5,7 @@
 #include "../util/util.hpp"
 #include "loggedMainView.hpp"
 
-View* LoginView::display(session& session)
+View* LoginView::display(Session& session)
 {
     auto& database = session.database;
 
@@ -20,7 +20,7 @@ View* LoginView::display(session& session)
         std::cout << "Password: ";
         std::cin >> password;
 
-        if (database.isUserExist(email)) //TODO: move to user session
+        if (database.isUserExist(email)) //TODO: move to user Session
         {
             auto user = database.getUser(email);
             if (user.password == password) {

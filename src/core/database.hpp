@@ -18,6 +18,7 @@ public:
     std::vector<User>& getAllUsers();
 
     void addProduct(const Product & productToAdd);
+    bool canAddProduct(const Product &productToAdd) const;
 
     std::vector<Product>& getAllProduct();
 

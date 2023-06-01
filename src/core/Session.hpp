@@ -4,7 +4,7 @@
 #include <iostream>
 #include "database.hpp"
 
-struct session {
+struct Session {
 
     std::string userEmail {""};
     Database database {};

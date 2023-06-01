@@ -5,7 +5,7 @@
 #include "loggedMainView.hpp"
 
 
-View* ProductListView::display(session& session)
+View* ProductListView::display(Session& session)
 {
     auto& database = session.database;
 

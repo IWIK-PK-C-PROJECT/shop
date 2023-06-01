@@ -57,4 +57,19 @@ std::vector<Product>& Database::getAllProduct()
     return products;
 }
 
+bool Database::canAddProduct(const Product & productToAdd) const
+{
+    if (productToAdd.name == "" || productToAdd.price < 0){
+        return false;
+    }
+
+    for(const auto & product : products)
+    {
+        if(productToAdd.name == product.name)
+            return false;
+    }
+
+    return true;
+}
+
 

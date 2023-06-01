@@ -1,13 +1,13 @@
 #include <iostream>
 #include "core/user.hpp"
-#include "core/session.hpp"
+#include "core/Session.hpp"
 #include "view/welcomeView.hpp"
 
 #include <fstream>
 
 int main()
 {
-    session currentSession {};
+    Session currentSession {};
 
     currentSession.loadUserFile();
     currentSession.loadProductFile();

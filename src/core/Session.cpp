@@ -1,6 +1,6 @@
-#include "session.hpp"
+#include "Session.hpp"
 
-void session::loadUserFile()
+void Session::loadUserFile()
 {
     std::fstream usersFile;
     usersFile.open("users.txt", std::ios::in );
@@ -25,7 +25,7 @@ void session::loadUserFile()
     usersFile.close();
 }
 
-void session::loadProductFile()
+void Session::loadProductFile()
 {
     std::fstream productFile;
     productFile.open("products.txt", std::ios::in );
@@ -49,7 +49,7 @@ void session::loadProductFile()
     productFile.close();
 }
 
-void session::saveUserFile()
+void Session::saveUserFile()
 {
     std::fstream usersFile;
     usersFile.open("users.txt", std::ofstream::out | std::ofstream::trunc);
@@ -65,7 +65,7 @@ void session::saveUserFile()
     usersFile.close();
 }
 
-void session::saveProductFile()
+void Session::saveProductFile()
 {
     std::fstream productFile;
     productFile.open("products.txt", std::ofstream::out | std::ofstream::trunc);
