@@ -10,6 +10,7 @@ View* LoginView::display(Session& session)
     auto& database = session.database;
 
     std::string email, password;
+
     while(true)
     {
         clearScreen();
@@ -23,17 +24,22 @@ View* LoginView::display(Session& session)
         if (database.isUserExist(email)) //TODO: move to user Session
         {
             auto user = database.getUser(email);
-            if (user.password == password) {
+
+            if (user.password == password)
+            {
                 session.userEmail = email;
                 return new LoggedMainView();
             }
-        }else
-            std::cout<<"Email or password doesnt match with database, do you want to try again? [Y/N]"<<std::endl;
-            std::string choice;
-            std::cin>>choice;
-            if (choice == "N" || choice == "n"){
-                return new WelcomeView();
-            }
+        }
+
+        std::cout << "Email or password doesnt match with database, do you want to try again? [Y/N]" << std::endl;
+
+        std::string choice;
+        std::cin >> choice;
+
+        if (choice == "N" || choice == "n")
+            return new WelcomeView();
+
     }
 }
 

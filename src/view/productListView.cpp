@@ -21,10 +21,10 @@ View* ProductListView::display(Session& session)
     std::cout << "1. Buy product" << std::endl;
     std::cout << "2. Back to main menu" << std::endl;
 
-    int choice;
+    std::string choice;
     std::cin >> choice;
 
-    if (choice == 1)
+    if (choice == "1")
     {
         std::string productToBuy;
 
