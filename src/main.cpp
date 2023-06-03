@@ -1,40 +1,33 @@
 #include <iostream>
+#include <fstream>
+
 #include "core/user.hpp"
 #include "core/Session.hpp"
 #include "view/welcomeView.hpp"
 
-#include <fstream>
 
 int main()
 {
     Session currentSession {};
 
-    currentSession.loadUserFile();
-    currentSession.loadProductFile();
-
-    // main loop
     {
-        std::fstream file("raport.txt", std::fstream::in | std::fstream::out | std::fstream::trunc);
+        std::fstream raport_file("raport.txt", std::fstream::in | std::fstream::out | std::fstream::trunc);
 
-        View *currentView = new WelcomeView();
-        while (true) {
-            if (currentView == nullptr)
-                break;
+        View * currentView = new WelcomeView();
 
-            file << currentView->getDisplayName() << "\n";
+        while (currentView != nullptr)
+        {
+            raport_file << currentView->getDisplayName() << "\n";
 
-            //currentView = currentView->display(currentSession);
             View *nextView = currentView->display(currentSession); // only for clean-up
             delete currentView; // only for clean-up
             currentView = nextView; // only for clean-up
         }
+
         delete currentView;
 
-        file.close();
+        raport_file.close();
     }
-
-    currentSession.saveUserFile();
-    currentSession.saveProductFile();
 
     return 0;
 }

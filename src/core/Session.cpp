@@ -78,3 +78,15 @@ void Session::saveProductFile()
 
     productFile.close();
 }
+
+Session::Session()
+{
+    loadUserFile();
+    loadProductFile();
+}
+
+Session::~Session()
+{
+    saveUserFile();
+    saveProductFile();
+}

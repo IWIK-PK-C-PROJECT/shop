@@ -5,10 +5,14 @@
 #include "database.hpp"
 
 struct Session {
-
+public:
     std::string userEmail {""};
     Database database {};
 
+    Session();
+    ~Session();
+
+private:
     void loadUserFile();
     void loadProductFile();
 
