@@ -8,6 +8,7 @@
 
 #include "productListView.hpp"
 #include "addProductView.hpp"
+#include "ordersView.h"
 
 View* LoggedMainView::display(Session& session)
 {
@@ -19,8 +20,9 @@ View* LoggedMainView::display(Session& session)
     {
         std::cout << "1. Show Products" << std::endl;
         std::cout << "2. Add Product" << std::endl;
-        std::cout << "3. LogOut" << std::endl;
-        std::cout << "4. Exit" << std::endl;
+        std::cout << "3. Show my orders" << std::endl;
+        std::cout << "4. LogOut" << std::endl;
+        std::cout << "5. Exit" << std::endl;
 
         std::cin >> input;
 
@@ -34,9 +36,18 @@ View* LoggedMainView::display(Session& session)
         }
         else if (input == "3")
         {
-            return new WelcomeView();
+            return new ordersView();
         }
         else if (input == "4")
+        {
+            session.saveOrdersFile();                // save files
+
+            session.userEmail = "";                  // clear email
+            session.database.getAllOrders().clear(); // clear orders
+
+            return new WelcomeView();
+        }
+        else if (input == "5")
         {
             return nullptr;
         }

@@ -28,6 +28,8 @@ View* LoginView::display(Session& session)
             if (user.password == password)
             {
                 session.userEmail = email;
+                session.loadOrdersFile();
+
                 return new LoggedMainView();
             }
         }

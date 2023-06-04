@@ -3,6 +3,7 @@
 #include <iostream>
 #include "../util/util.hpp"
 #include "loggedMainView.hpp"
+#include "../core/Order.h"
 
 
 View* ProductListView::display(Session& session)
@@ -33,9 +34,11 @@ View* ProductListView::display(Session& session)
 
         for(Product& product : session.database.getAllProduct() )
         {
-             if (productToBuy == product.name)
+             if (productToBuy == product.name && product.status == Product::Status::Available)
              {
                  product.status = Product::Status::Preparation;
+                 session.database.getAllOrders().emplace_back(productToBuy, std::chrono::system_clock::now());
+
                  return new ProductListView();
              }
         }
