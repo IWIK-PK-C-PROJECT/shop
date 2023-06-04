@@ -15,7 +15,7 @@ View* ProductListView::display(Session& session)
         if (product.status != Product::Status::Available)
             continue;
 
-        std::cout << "- " << product.name << " | "<< product.price << " USD" << std::endl;
+        std::cout << product << std::endl;
     }
 
     std::cout << "1. Buy product" << std::endl;

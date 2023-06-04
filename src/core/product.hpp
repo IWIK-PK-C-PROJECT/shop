@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <iostream>
 
 class Product {
 public:
@@ -13,6 +14,7 @@ public:
     double price {};
 
     Status status {Status::Available};
+    friend std::ostream & operator<<(std::ostream & os, const Product & p);
 };
 
 
