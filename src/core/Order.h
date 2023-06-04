@@ -8,12 +8,14 @@ using time_point = std::chrono::time_point<std::chrono::system_clock>;
 class Order
 {
 private:
-    Product product;
+    std::string product_name;
     std::time_t order_date;
 public:
-    Order(const Product & p, const time_point & date);
+    Order(const std::string & p, const time_point & date);
+    Order(const std::string & p, const std::time_t & date);
     ~Order() = default;
-    friend std::ostream & operator<<(std::ostream & os, const Order & o);
+    const std::string & getProductName()const{ return product_name; }
+    const time_t & getOrderDate()const{ return order_date; }
 
 };
 
