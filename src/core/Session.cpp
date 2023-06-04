@@ -74,9 +74,67 @@ void Session::saveProductFile()
         productFile << product.name << " ";
         productFile << product.price << " ";
         productFile << static_cast<int>(product.status) << " ";
+        productFile << std::endl;
     }
 
     productFile.close();
+}
+
+void Session::loadOrdersFile()
+{
+    if(userEmail.empty())
+        return;
+
+    std::ifstream ordersFile;
+
+    ordersFile.open("orders/" + userEmail + ".txt", std::ios::in );
+
+    if (!ordersFile.good())
+    {
+        std::cout << "Can`t open orders file for "<< userEmail << std::endl;
+        return;
+    }
+
+    std::time_t date_temp;
+    std::string product_temp;
+
+    while (!ordersFile.eof())
+    {
+        ordersFile >> date_temp;
+        ordersFile.get();
+        ordersFile >> product_temp;
+
+        if(date_temp == 0 || product_temp.empty())
+            continue;
+
+        database.getAllOrders().emplace_back(product_temp, date_temp);
+    }
+
+    ordersFile.close();
+}
+
+void Session::saveOrdersFile()
+{
+    if(userEmail.empty())
+        return;
+
+    std::ofstream ordersFile;
+    ordersFile.open("orders/" + userEmail + ".txt", std::ofstream::out | std::ofstream::trunc );
+
+
+    for(auto & order : database.getAllOrders() )
+    {
+        ordersFile << order.getOrderDate() << " ";
+        ordersFile << order.getProductName() <<  std::endl;
+    }
+
+    ordersFile.close();
+}
+
+void Session::printOrders(std::ostream & os)
+{
+    for( const auto & order : database.getAllOrders())
+        os << ctime(&order.getOrderDate()) << ' '<< *std::find_if(database.getAllProduct().begin(), database.getAllProduct().end(),[&order](const Product & p){return p.name == order.getProductName();}) << std::endl;
 }
 
 Session::Session()
@@ -89,4 +147,5 @@ Session::~Session()
 {
     saveUserFile();
     saveProductFile();
+    saveOrdersFile();
 }
