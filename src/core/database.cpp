@@ -72,4 +72,7 @@ bool Database::canAddProduct(const Product & productToAdd) const
     return true;
 }
 
-
+std::vector<Order> & Database::getAllOrders()
+{
+    return orders;
+}

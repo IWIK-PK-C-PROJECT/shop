@@ -3,6 +3,7 @@
 #include <vector>
 #include "user.hpp"
 #include "product.hpp"
+#include "Order.h"
 
 class Database
 {
@@ -21,8 +22,10 @@ public:
     bool canAddProduct(const Product &productToAdd) const;
 
     std::vector<Product>& getAllProduct();
+    std::vector<Order> & getAllOrders();
 
 private:
     std::vector<User> users {};
     std::vector<Product> products {};
+    std::vector<Order> orders {};
 };
