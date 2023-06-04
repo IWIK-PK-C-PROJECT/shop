@@ -108,6 +108,9 @@ void Session::loadOrdersFile()
             continue;
 
         database.getAllOrders().emplace_back(product_temp, date_temp);
+
+        date_temp = 0;
+        product_temp = "";
     }
 
     ordersFile.close();
