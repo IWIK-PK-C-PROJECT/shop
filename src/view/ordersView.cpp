@@ -1,7 +1,7 @@
 #include <iostream>
 
 
-#include "ordersView.h"
+#include "ordersView.hpp"
 #include "loggedMainView.hpp"
 #include "../util/util.hpp"
 

@@ -3,7 +3,7 @@
 #include <iostream>
 #include "../util/util.hpp"
 #include "loggedMainView.hpp"
-#include "../core/Order.h"
+#include "../core/Order.hpp"
 
 
 View* ProductListView::display(Session& session)

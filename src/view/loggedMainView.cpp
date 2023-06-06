@@ -8,7 +8,7 @@
 
 #include "productListView.hpp"
 #include "addProductView.hpp"
-#include "ordersView.h"
+#include "ordersView.hpp"
 
 View* LoggedMainView::display(Session& session)
 {
