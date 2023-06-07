@@ -1,6 +1,6 @@
-#include "productListView.hpp"
-
 #include <iostream>
+
+#include "productListView.hpp"
 #include "../util/util.hpp"
 #include "loggedMainView.hpp"
 #include "../core/Order.hpp"

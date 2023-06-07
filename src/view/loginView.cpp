@@ -1,7 +1,7 @@
+#include <iostream>
+
 #include "loginView.hpp"
 #include "WelcomeView.hpp"
-
-#include <iostream>
 #include "../util/util.hpp"
 #include "loggedMainView.hpp"
 
@@ -41,7 +41,6 @@ View* LoginView::display(Session& session)
 
         if (choice == "N" || choice == "n")
             return new WelcomeView();
-
     }
 }
 

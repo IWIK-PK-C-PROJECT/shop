@@ -1,11 +1,9 @@
-#include "loggedMainView.hpp"
-
 #include <iostream>
-#include "../util/util.hpp"
 
+#include "loggedMainView.hpp"
+#include "../util/util.hpp"
 #include "welcomeView.hpp"
 #include "loginView.hpp"
-
 #include "productListView.hpp"
 #include "addProductView.hpp"
 #include "ordersView.hpp"

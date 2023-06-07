@@ -1,6 +1,6 @@
-#include "registerView.hpp"
-
 #include <iostream>
+
+#include "registerView.hpp"
 #include "../util/util.hpp"
 #include "welcomeView.hpp"
 

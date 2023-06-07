@@ -1,10 +1,8 @@
 #include <iostream>
 
-
 #include "ordersView.hpp"
 #include "loggedMainView.hpp"
 #include "../util/util.hpp"
-
 
 View* ordersView::display(Session& session)
 {

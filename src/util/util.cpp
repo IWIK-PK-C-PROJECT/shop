@@ -1,6 +1,7 @@
-#include "util.hpp"
 #include <iostream>
 #include <stdlib.h>
+
+#include "util.hpp"
 
 void clearScreen()
 {

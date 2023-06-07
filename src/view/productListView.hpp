@@ -1,4 +1,5 @@
 #pragma once
+
 #include "../core/view.hpp"
 
 class ProductListView : public View

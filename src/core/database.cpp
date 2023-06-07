@@ -1,6 +1,6 @@
-#include "database.hpp"
 #include <vector>
 
+#include "database.hpp"
 
 bool Database::isUserExist(const std::string &email) const {
     for(const auto & user : users)
