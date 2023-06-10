@@ -1,7 +1,7 @@
 #include <iostream>
 
 #include "loginView.hpp"
-#include "WelcomeView.hpp"
+#include "welcomeView.hpp"
 #include "../util/util.hpp"
 #include "loggedMainView.hpp"
 
